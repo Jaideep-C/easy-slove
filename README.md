@@ -4,4 +4,4 @@ A new Flutter project.
 
 ## Getting Started
 
-This is a Cross platform App.
+This is a Cross platform App for helping student's.
