@@ -1,7 +1,7 @@
 import 'package:easy_solve/src/Widget/bezierContainer.dart';
+import 'package:easy_solve/src/user/userSignup.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-// import 'Widget/bezierContainer.dart';
 
 class LoginPage extends StatefulWidget {
   final String title;
@@ -11,7 +11,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-    Widget _backButton() {
+  Widget _backButton() {
     return InkWell(
       onTap: () {
         Navigator.pop(context);
@@ -31,7 +31,8 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
   }
-  Widget _entryField(String title, {bool isPassword = false}) {
+  
+  Widget _entryField(String title, {bool isPassword = false,String hint=""}) {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 10),
       child: Column(
@@ -47,6 +48,7 @@ class _LoginPageState extends State<LoginPage> {
           TextField(
               obscureText: isPassword,
               decoration: InputDecoration(
+                  hintText: hint,
                   border: InputBorder.none,
                   fillColor: Color(0xfff3f3f4),
                   filled: true))
@@ -176,7 +178,10 @@ class _LoginPageState extends State<LoginPage> {
             width: 10,
           ),
           InkWell(
-            onTap:null,
+            onTap: () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => UserSignupPage()));
+      },
             child: Text(
               'Register',
               style: TextStyle(
@@ -225,7 +230,10 @@ class _LoginPageState extends State<LoginPage> {
   Widget _emailPasswordWidget() {
     return Column(
       children: <Widget>[
-        _entryField("Email id"),
+        _entryField(
+          "Email Id or Username",
+          hint: "someone@email.com",
+        ),
         _entryField("Password", isPassword: true),
       ],
     );

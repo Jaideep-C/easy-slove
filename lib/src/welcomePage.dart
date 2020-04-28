@@ -1,7 +1,7 @@
 import 'package:easy_solve/src/loginPage.dart';
+import 'package:easy_solve/src/signupPage.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-// import 'package:google_fonts/google_fonts.dart';
 
 class WelcomePage extends StatefulWidget {
   WelcomePage({Key key, this.title}) : super(key: key);
@@ -40,37 +40,40 @@ class _WelcomePageState extends State<WelcomePage> {
       ),
     );
   }
-  Widget _label() {
-    return Container(
-        margin: EdgeInsets.only(top: 40, bottom: 20),
-        child: Column(
-          children: <Widget>[
-            Text(
-              'Quick login with Touch ID',
-              style: TextStyle(color: Colors.white, fontSize: 17),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            Icon(Icons.fingerprint, size: 90, color: Colors.white),
-            SizedBox(
-              height: 20,
-            ),
-            Text(
-              'Touch ID',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 15,
-                decoration: TextDecoration.underline,
-              ),
-            ),
-          ],
-        ));
-  }
+  // Widget _label() {
+  //   return Container(
+  //       margin: EdgeInsets.only(top: 40, bottom: 20),
+  //       child: Column(
+  //         children: <Widget>[
+  //           Text(
+  //             'Quick login with Touch ID',
+  //             style: TextStyle(color: Colors.white, fontSize: 17),
+  //           ),
+  //           SizedBox(
+  //             height: 20,
+  //           ),
+  //           Icon(Icons.fingerprint, size: 90, color: Colors.white),
+  //           SizedBox(
+  //             height: 20,
+  //           ),
+  //           Text(
+  //             'Touch ID',
+  //             style: TextStyle(
+  //               color: Colors.white,
+  //               fontSize: 15,
+  //               decoration: TextDecoration.underline,
+  //             ),
+  //           ),
+  //         ],
+  //       ));
+  // }
 
   Widget _signUpButton() {
     return InkWell(
-      onTap:null,
+      onTap: () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => SinupPage()));
+      },
       child: Container(
         width: MediaQuery.of(context).size.width,
         padding: EdgeInsets.symmetric(vertical: 13),
@@ -149,7 +152,7 @@ class _WelcomePageState extends State<WelcomePage> {
               SizedBox(
                 height: 4,
               ),
-              _label()
+              //_label()
             ],
           ),
         ),
