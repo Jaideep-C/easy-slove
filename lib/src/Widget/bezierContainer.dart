@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'customClipper.dart';
 
 class BezierContainer extends StatelessWidget {
-  const BezierContainer({Key key}) : super(key: key);
-
+  const BezierContainer({Key key, this.tutor=false}) : super(key: key);
+  final bool tutor;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -21,7 +21,13 @@ class BezierContainer extends StatelessWidget {
               gradient: LinearGradient(
                 begin: Alignment.topCenter,
                 // end: Alignment.bottomRight,
-                colors: [Color(0xff3a7bd5),Color(0xff00d2ff)]
+                colors: (!tutor)?([
+                  Color(0xff3a7bd5),
+                  Color(0xff00d2ff)
+                ]):([
+                  Color(0xfffbb448),
+                  Color(0xffe46b10)
+                  ]),
               )
             ),
         ),

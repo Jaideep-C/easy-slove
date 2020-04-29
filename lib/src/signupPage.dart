@@ -3,14 +3,16 @@ import 'package:easy_solve/src/user/userSignup.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class SinupPage extends StatefulWidget {
+import 'welcomePage.dart';
+
+class Signup extends StatefulWidget {
     final String title;
-    SinupPage({Key key, this.title}) : super(key:key);
+    Signup({Key key, this.title}) : super(key:key);
   @override
-  _SinupPageState createState() => _SinupPageState();
+  _SignupState createState() => _SignupState();
 }
 
-class _SinupPageState extends State<SinupPage> {
+class _SignupState extends State<Signup> {
    
    Widget _divider() {
     return Container(
@@ -44,6 +46,7 @@ class _SinupPageState extends State<SinupPage> {
       ),
     );
   }
+   
    Widget _tutor(){
      return InkWell(
        onTap: () {
@@ -65,6 +68,7 @@ class _SinupPageState extends State<SinupPage> {
        ),
      );
    }
+   
    Widget _student(){
      return InkWell(
        onTap: () {
@@ -86,6 +90,7 @@ class _SinupPageState extends State<SinupPage> {
        ),
      );
    }
+   
    Widget _title() {
     return RichText(
       textAlign: TextAlign.center,
@@ -105,10 +110,12 @@ class _SinupPageState extends State<SinupPage> {
         ]),
     );
   }
+  
   Widget _backButton() {
     return InkWell(
       onTap: () {
-        Navigator.pop(context);
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => WelcomePage()));
       },
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 10),
@@ -125,6 +132,7 @@ class _SinupPageState extends State<SinupPage> {
       ),
     );
   }
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(

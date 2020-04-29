@@ -1,7 +1,9 @@
 import 'package:easy_solve/src/Widget/bezierContainer.dart';
-import 'package:easy_solve/src/loginPage.dart';
+import 'package:easy_solve/src/signupPage.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import '../welcomePage.dart';
 
 class UserSignupPage extends StatefulWidget {
     final String title;
@@ -136,7 +138,8 @@ class _UserSignupPageState extends State<UserSignupPage> {
   Widget _backButton() {
     return InkWell(
       onTap: () {
-        Navigator.pop(context);
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => Signup()));
       },
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 10),
@@ -168,6 +171,10 @@ class _UserSignupPageState extends State<UserSignupPage> {
         _entryField(
           "Email ID",
           hint:"johnwick@email.com",
+        ),
+        _entryField(
+          "Phone Number",
+          hint: "9876543210",
         ),
         _entryField(
           "Password",
